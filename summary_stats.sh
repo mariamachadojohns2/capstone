@@ -22,8 +22,9 @@ module load SAMtools/1.23.1-GCC-13.3.0
 for bam in results/bam/*.sorted.bam
 do
     sample=$(basename "$bam" .sorted.bam)
-    echo "$sample"
-    samtools flagstat "$bam" | grep "mapped (" 
+    echo -n "$sample: "
+    # Count only mapped reads
+    samtools view -c -F 0x4 "$bam"
 done
 
 #Count variant sites per sample
