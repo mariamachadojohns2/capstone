@@ -1,0 +1,9 @@
+# Large files to ignore
+data/
+results/bam/
+results/sam/
+results/*/multiqc_data/
+*.fastq
+*.sam
+*.bam
+*.zip
