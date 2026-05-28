@@ -8,7 +8,7 @@ curl -L \
   -o data/ref_genome/ecoli_rel606.fasta.gz \
   ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/017/985/GCA_000017985.1_ASM1798v1/GCA_000017985.1_ASM1798v1_genomic.fna.gz
 
-#unzip the .gz files
+#unzip the .gz file
 gunzip data/ref_genome/ecoli_rel606.fasta.gz
 
 # Index the reference genome
@@ -18,10 +18,12 @@ bwa index data/ref_genome/ecoli_rel606.fasta
 # Make output directories
 mkdir -p results/sam results/bam results/bcf results/vcf
 
+# Reload softwares
 module load BWA/0.7.18-GCCcore-13.3.0
 module load SAMtools/1.23.1-GCC-13.3.0
 module load BCFtools/1.23.1-GCC-13.3.0
 
+# For loop to sort and index the BAM, then call and index variants to produce a VCF for IGV softwares, etc.
 for fwd in data/trimmed_fastq/*_1_paired.fastq.gz
 do
 sample=$(basename "$fwd" _1_paired.fastq.gz)
