@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # align trimmed reads to E coli and call variants
 
