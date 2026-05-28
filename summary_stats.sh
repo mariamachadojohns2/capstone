@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 #Count how many reads are in the raw FASTQ files
 for f in data/untrimmed_fastq/*.fastq.gz
