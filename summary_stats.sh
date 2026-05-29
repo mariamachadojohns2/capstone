@@ -104,26 +104,14 @@ sort -k1,1 variant_counts.tsv > variant_counts.sorted.tsv
 
 # Combine all counts into a summary table
 {
-    # Add the header row at the top of the final table
     echo -e "Sample\tRaw_Reads\tTrimmed_Reads\tAligned_Reads\tVariant_Sites"
 
-    # paste = combine files side-by-side
-    # <(tail -n +2 file) = remove the header from each file before pasting
     paste \
         <(tail -n +2 raw_counts.tsv) \
         <(tail -n +2 trimmed_counts.tsv) \
         <(tail -n +2 aligned_counts.tsv) \
         <(tail -n +2 variant_counts.tsv) \
-    
-    # cut selects only the columns wanted:
-    # 1 = Sample
-    # 2 = Raw_Reads
-    # 4 = Trimmed_Reads
-    # 6 = Aligned_Reads
-    # 8 = Variant_Sites
     | cut -f1,2,4,6,8
-
-# Redirect everything inside { } into the final summary table
 } > summary_table.tsv
 
 
