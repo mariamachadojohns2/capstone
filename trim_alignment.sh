@@ -34,7 +34,7 @@ sample=$(basename "$fwd" _1_paired.fastq.gz)
     #Align
     bwa mem data/ref_genome/ecoli_rel606.fasta "$fwd" "$rev" > results/sam/${sample}.sam
 
-    #Convert SAM → BAM
+    #Convert SAM to BAM
     samtools view -S -b results/sam/${sample}.sam > results/bam/${sample}.bam
 
     #Sort BAM
