@@ -13,7 +13,7 @@ module load MultiQC/1.28-foss-2024a
 
 multiqc results/untrimmed_fastqc -o results/untrimmed_multiqc
 
-trim fastqc files with trimmomatic
+# trim fastq files with trimmomatic
 module load Trimmomatic/0.39-Java-17
 mkdir -p data/trimmed_fastq
 
