@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#Load softwares
+ml  Seaborn/0.13.2-gfbf-2024a
+ml SciPy-bundle/2025.07-gfbf-2025b
+ml matplotlib/3.9.2-gfbf-2024a
+
 #make line and bar charts
 import pandas as pd
 import matplotlib.pyplot as plt
